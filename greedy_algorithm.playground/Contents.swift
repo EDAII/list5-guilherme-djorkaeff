@@ -22,7 +22,7 @@ var dms = [DeliveryMan]()
 var dvs = [Delivery]()
 
 func addDelivery(start: Int, duration: Int) {
-    var dv = Delivery(start: start, duration: duration)
+    let dv = Delivery(start: start, duration: duration)
 
     var i = 0
     var flag = false
@@ -31,6 +31,7 @@ func addDelivery(start: Int, duration: Int) {
             dms[i].deliverys.append(dv)
             dms[i].lastUse = dv.start + dv.duration
             flag = true
+            break
         }
         i += 1
     }
@@ -44,12 +45,13 @@ func plusDv(start: Int, duration: Int) {
     dms.removeAll()
     
     var dv = Delivery(start: 0, duration: 0)
-    var dm = DeliveryMan(delivery: dv, lastUse: dv.start + dv.duration)
+    let dm = DeliveryMan(delivery: dv, lastUse: dv.start + dv.duration)
     
     dms.append(dm)
 
     dv = Delivery(start: start, duration: duration)
     dvs.append(dv)
+
     let sorted_dvs = dvs.sorted { $0.start < $1.start }
     var aux = 0
     while aux<sorted_dvs.count {
@@ -58,12 +60,16 @@ func plusDv(start: Int, duration: Int) {
     }
 }
 
-plusDv(start: 9, duration: 5)
-plusDv(start: 17, duration: 3)
-plusDv(start: 14, duration: 3)
-plusDv(start: 20, duration: 3)
-plusDv(start: 23, duration: 1)
-plusDv(start: 25, duration: 1)
+plusDv(start: 0, duration: 3)
+plusDv(start: 0, duration: 3)
+plusDv(start: 0, duration: 7)
+plusDv(start: 4, duration: 3)
+plusDv(start: 4, duration: 6)
+plusDv(start: 8, duration: 3)
+plusDv(start: 8, duration: 3)
+plusDv(start: 10, duration: 5)
+plusDv(start: 12, duration: 3)
+plusDv(start: 12, duration: 3)
 
 print("Número de motoboys:")
 print(dms.count)
