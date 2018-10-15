@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var coin_change = CoinChange(coinSet: [1, 2, 5, 10, 20, 25])
+    var coin_change = CoinChange(coinSet: [1, 5, 10, 25, 50, 100])
     
     override func viewDidLoad() {
         super.viewDidLoad()
