@@ -10,16 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var coin_change = CoinChange(coinSet: [1, 2, 5, 10, 20, 25])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBOutlet weak var lblChanged: UILabel!
+    @IBOutlet weak var toChange: UITextField!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func changeCoins(_ sender: Any) {
+        lblChanged.text = coin_change.changeGreedy(Int(toChange.text!)!).description
+    }
+    
 }
 
